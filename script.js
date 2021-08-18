@@ -5,6 +5,7 @@ let formAbout = document.querySelector('.form__item_about');
 let formElement = document.querySelector('.form');
 let Popup = document.querySelector('.popup');
 let PopupOpened = document.querySelector('.popup_opened');
+let formButton = document.querySelector('.form__button');
 
 function openForm() {  
   formName.value = profileName.textContent;
@@ -32,4 +33,5 @@ function handleFormSubmit(evt) {
 
 btnOpen.addEventListener("click", openForm);
 btnClose.addEventListener("click", closeForm);
-formElement.addEventListener('submit', handleFormSubmit); 
+formElement.addEventListener('submit', handleFormSubmit);
+formButton.addEventListener("click", closeForm);
