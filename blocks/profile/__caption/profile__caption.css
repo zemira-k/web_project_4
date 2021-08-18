@@ -1,0 +1,22 @@
+.profile__caption {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 16px;
+  justify-content: space-between;
+  width: 90%;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__caption {
+    margin: 0 auto 15px;
+    width: 70%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile__caption {
+    margin-bottom: 14px;
+    width: 100%;
+  }
+}

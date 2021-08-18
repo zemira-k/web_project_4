@@ -1,0 +1,7 @@
+.element__name {
+  display: flex;
+  flex-direction: row;
+  margin: 0 15px 0 21px;
+  justify-content: space-between;
+  width: 88%;
+}

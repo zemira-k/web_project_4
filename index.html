@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Around The U.S.</title>
+</head>
+
+<body class="page">
+    <div class="page__container">
+        <header class="header">
+            <div class="header__logo"></div>
+        </header>
+
+        <main class="main">
+            <div class="form__popup form__popup_opened">
+                <form class="form">
+                    <button class="form__close" type="submit" id="btnClose"></button>
+                    <p class="form__header">Edit profile</p>
+                    <fieldset class="form__fieldset">
+                        <input class="form__item form__item_name" type="text" id="formName">
+                        <input class="form__item form__item_about" type="text" id="formAbout">
+                        <button class="form__button" type="submit" id="submit">save</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <section class="profile">
+                <img class="profile__avatar" src="./images/avatar.svg" alt="avatar">
+                <div class="profile__info">
+                    <div class="profile__caption">
+                        <p class="profile__name" id="name">Jacques Cousteau</p>
+                        <button class="profile__editbutton" type="submit" id="btnOpen"></button>
+                    </div>
+                    <p class="profile__task" id="task">Explorer</p>
+                </div>
+                <button class="profile__BigRectangle"></button>
+            </section>
+
+            <section class="elements">
+                <div class="element">
+                    <img class="element__item" src="images/Yosemite-Valley.jpg" alt="photo Yosemite Valley">
+                    <div class="element__name">
+                        <p class="element__name_text">Yosemite Valley</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__item" src="images/Lake-Louise.jpg" alt="photo Lake Louise">
+                    <div class="element__name">
+                        <p class="element__name_text">Lake Louise</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__item" src="images/Bald-Mountains.jpg" alt="photo Bald Mountains">
+                    <div class="element__name">
+                        <p class="element__name_text">Bald Mountains</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__item" src="images/Latemar.jpg" alt="photo Latemar">
+                    <div class="element__name">
+                        <p class="element__name_text">Latemar</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__item" src="images/Vanoise-Nationa.jpg" alt="photo Vanoise Nationa">
+                    <div class="element__name">
+                        <p class="element__name_text">Vanoise Nationa</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__item" src="images/Lago-di-Braies.jpg" alt="photo Lago di Braies">
+                    <div class="element__name">
+                        <p class="element__name_text">Lago di Braies</p>
+                        <div class="element__name_heart"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__copyrights">&copy; 2021 Around The U.S.</p>
+        </footer>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
