@@ -20,12 +20,12 @@
 @media screen and (max-width: 750px) {
   .form__close {
     width: 33px;
-    height: 33px;    
+    height: 33px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .form__close {    
+  .form__close {
     width: 26px;
     height: 26px;
     right: 0;
