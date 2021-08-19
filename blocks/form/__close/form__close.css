@@ -2,11 +2,15 @@
   background-image: url(../../../images/Close-Icon.svg);
   width: 40px;
   height: 40px;
-  background-repeat: no-repeat;
-  margin-left: 430px;
+  background-repeat: no-repeat;  
   margin-top: -40px;
   background-color: rgb(0, 0, 0, 0);
   border: none;
+  position: absolute;
+  cursor: pointer;
+  right: -40px;
+  padding: 0;
+  background-position: center center;
 }
 
 .form__close:hover {
@@ -16,15 +20,15 @@
 @media screen and (max-width: 750px) {
   .form__close {
     width: 33px;
-    height: 33px;
-    margin-left: 317px;
-    display: block;
+    height: 33px;    
   }
 }
 
 @media screen and (max-width: 500px) {
-  .form__close {
-    margin-left: 256px;
-    margin-top: -40px;
+  .form__close {    
+    width: 26px;
+    height: 26px;
+    right: 0;
+    background-size: 26px 26px;
   }
 }
