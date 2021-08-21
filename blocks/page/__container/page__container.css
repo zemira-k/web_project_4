@@ -1,5 +1,5 @@
 .page__container {
-  max-width: 880px;  
+  max-width: 880px;
   margin: auto;
   padding-top: 45px;
   padding-bottom: 60px;
@@ -29,7 +29,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .page__container {    
+  .page__container {
     width: 100%;
   }
 }
