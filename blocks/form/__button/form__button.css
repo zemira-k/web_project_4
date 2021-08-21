@@ -2,7 +2,7 @@
     background: #000000;
     border-radius: 2px;
     color: white;
-    width: 358px;
+    width: calc(100% - (36px * 2 ));
     height: 50.15px;
     font-weight: normal;
     font-size: 18px;
@@ -22,14 +22,15 @@
   
   @media screen and (max-width: 750px) {
     .form__button {
-      width: 300px;
+      width: calc(100% - (25px * 2 ));
       height: 48px;
+      margin: 0 25px 36px;
     }
   }
-  
+
   @media screen and (max-width: 500px) {
     .form__button {
-      width: 238px;
+      width: calc(100% - (22px * 2 ));
       height: 46px;
       font-size: 14px;
       line-height: 17px;
