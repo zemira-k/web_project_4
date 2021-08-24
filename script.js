@@ -102,5 +102,11 @@ const button = document.querySelector(".element__name-heart");
 button.addEventListener("click", function (evt) {
     const eventTarget = evt.target;
     console.log(eventTarget);
-    /*eventTarget.setAttribute("disabled", true);*/
+    if (button.classList.contains("element__name-heart_type_black")) {
+      button.classList.remove("element__name-heart_type_black");    
+    }
+    else {
+      button.classList.add("element__name-heart_type_black");
+    }
+    /*eventTarget.setAttribute("display", true);*/
 }); 
