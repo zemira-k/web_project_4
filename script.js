@@ -23,7 +23,7 @@ let formTitle = document.querySelector('.form__item_type_title');
 let formLink = document.querySelector('.form__item_type_img-link');
 let cardsContainer = document.querySelector('.elements');
 
-/*const cardData = [
+const cardData = [
   { name: "Yosemite Valley",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg" },
   { name: "Lake Louise",
@@ -40,10 +40,12 @@ let cardsContainer = document.querySelector('.elements');
 
 
 cardData.forEach((card) => {
-  const cardElement = createCard(card);
+  const title = card.name;
+  const imglink = card.link;
+  const cardElement = createCard(title, imglink);
   cardsContainer.prepend(cardElement);
 });
-
+/*
 const someElement = document.querySelector('.some-class');
 function handleSomeEvent(event) {
   console.log(event.target);
@@ -52,14 +54,12 @@ someElement.addEventListener("click", handleSomeEvent);
 
 someElement.remove();
 */
-function createCard(title, link) { 
-  console.log(cardText);
-  const cardTemplate = document.querySelector('#card-template').content; 
-  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);/*
-  cardText.textContent = title;
-  cardImg.setAttribute("src", link);
-  cardImg.setAttribute("alt", title);*/
-  return cardElement;
+function createCard(title, imglink) {  
+  const cardTemplate = document.querySelector('#card-template').content;
+  const card = cardTemplate.querySelector('.element').cloneNode(true);
+  cardText = title;
+  cardImg.setAttribute("src", imglink);  
+  return card;
 }
 
 function openFormEdit() {  
