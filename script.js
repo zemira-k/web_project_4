@@ -57,7 +57,9 @@ someElement.remove();
 function createCard(title, imglink) {  
   const cardTemplate = document.querySelector('#card-template').content;
   const card = cardTemplate.querySelector('.element').cloneNode(true);
-  cardText = title;
+  const cardImg = card.querySelector('.element__item');
+  const cardText = card.querySelector('.element__name-text');  
+  cardText.textContent = title;  
   cardImg.setAttribute("src", imglink);  
   return card;
 }
