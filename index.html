@@ -15,14 +15,26 @@
         </header>
 
         <main class="main">
-            <div class="popup">
+            <div class="popup popup_type_add">
                 <div class="popup__form">
-                    <button aria-label="popup__close" class="popup__close" type="button" id="btnClose"></button>
-                    <form class="form" name="form">
+                    <button aria-label="popup__close" class="popup__close popup__close_type_card" type="button" id="btnClose"></button>
+                    <form class="form form_type_card" name="form">
+                        <h2 class="form__header">New place</h2>
+                        <input class="form__item form__item_type_title" type="text" name="formTitle" id="formTitle" value="Title">
+                        <input class="form__item form__item_type_img-link" type="text" name="formImgLink" id="formImgLink" value="Image link">
+                        <button aria-label="submit" class="form__button form__button_type_add" type="submit" id="submit">Create</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="popup popup_type_edit">
+                <div class="popup__form">
+                    <button aria-label="popup__close" class="popup__close popup__close_type_profile" type="button" id="btnClose"></button>
+                    <form class="form form_type_profile" name="form">
                         <h2 class="form__header">Edit profile</h2>
                         <input class="form__item form__item_type_name" type="text" name="formName" id="formName">
                         <input class="form__item form__item_type_about" type="text" name="formAbout" id="formAbout">
-                        <button aria-label="submit" class="form__button" type="submit" id="submit">save</button>
+                        <button aria-label="submit" class="form__button form__button_type_edit" type="submit" id="submit">save</button>
                     </form>
                 </div>
             </div>
@@ -40,7 +52,7 @@
                 <button aria-label="add-pic" class="profile__big-rectangle" type="button"></button>
             </section>
 
-            <section class="elements">
+            <section class="elements"> <!--
                 <article class="element">
                     <img class="element__item" src="images/Yosemite-Valley.jpg" alt="photo Yosemite Valley">
                     <div class="element__name">
@@ -82,7 +94,7 @@
                         <h3 class="element__name-text">Lago di Braies</h3>
                         <button class="element__name-heart" type="button"></button>
                     </div>
-                </article>
+                </article> -->
             </section>
         </main>
 
@@ -90,6 +102,18 @@
             <p class="footer__copyrights">&copy; 2021 Around The U.S.</p>
         </footer>
     </div>
+
+<template id="card-template">
+    <article class="element">
+        <img class="element__item" src="images/Yosemite-Valley.jpg" alt="photo Yosemite Valley">
+        <div class="element__name">
+            <h2 class="element__name-text">nmbnbmn</h2>
+            <button class="element__name-heart" type="button"></button>
+        </div>
+    </article>  
+</template>
+
+
     <script src="./script.js"></script>
 </body>
 
