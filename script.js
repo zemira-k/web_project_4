@@ -45,22 +45,15 @@ cardData.forEach((card) => {
   const cardElement = createCard(title, imglink);
   cardsContainer.prepend(cardElement);
 });
-/*
-const someElement = document.querySelector('.some-class');
-function handleSomeEvent(event) {
-  console.log(event.target);
-}
-someElement.addEventListener("click", handleSomeEvent);
 
-someElement.remove();
-*/
 function createCard(title, imglink) {  
   const cardTemplate = document.querySelector('#card-template').content;
   const card = cardTemplate.querySelector('.element').cloneNode(true);
   const cardImg = card.querySelector('.element__item');
-  const cardText = card.querySelector('.element__name-text');  
+  const cardText = card.querySelector('.element__name-text');
   cardText.textContent = title;  
-  cardImg.setAttribute("src", imglink);  
+  cardImg.setAttribute("src", imglink);
+  cardImg.setAttribute("alt", title);  
   return card;
 }
 
@@ -103,3 +96,11 @@ popupCloseProfile.addEventListener("click", closeFormEdit);
 popupCloseCard.addEventListener("click", closeFormAdd);
 formTypeProfile.addEventListener('submit', handleFormSubmitEdit);
 formTypeCard.addEventListener('submit', handleFormSubmitCard);
+
+const button = document.querySelector(".element__name-heart");
+
+button.addEventListener("click", function (evt) {
+    const eventTarget = evt.target;
+    console.log(eventTarget);
+    /*eventTarget.setAttribute("disabled", true);*/
+}); 
