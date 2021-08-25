@@ -1,6 +1,7 @@
-.element__item {
+.element__btn_type_image {
     width: 100%;
     border-radius: 10px 10px 0 0;
     aspect-ratio: 1/1;
-    background-size: cover;    
-  }
+    background-size: cover;
+    z-index: 1;
+}
