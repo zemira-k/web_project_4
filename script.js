@@ -13,6 +13,7 @@ const cardData = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg" }
 ];
 
+
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.element');
 const cardsContainer = document.querySelector('.elements');
 
@@ -52,43 +53,44 @@ popupTypeEdit.classList.add("popup_opened");
 })
 
 // close form of edit profile
-popupCloseProfile.addEventListener("click", () => {   
-popupTypeEdit.classList.remove("popup_opened"); 
+popupCloseProfile.addEventListener("click", () => {
+popupTypeEdit.classList.remove("popup_opened");
 })
 
 // open form to add card
-addCard.addEventListener("click", () => {   
+addCard.addEventListener("click", () => {
+  formTitle.value = "Title"
+  formLink.value = "Image Link"
 popupTypeAdd.classList.add("popup_opened");
 })
 
 // close form of add card
-popupCloseCard.addEventListener("click", () => { 
-popupTypeAdd.classList.remove("popup_opened"); 
+popupCloseCard.addEventListener("click", () => {
+popupTypeAdd.classList.remove("popup_opened");
 })
 
 // close big image
-popupCloseImage.addEventListener("click", () => { 
-  popupTypeImage.classList.remove("popup_opened"); 
+popupCloseImage.addEventListener("click", () => {
+  popupTypeImage.classList.remove("popup_opened");
   })
 
 //submit edit form
-popupTypeEdit.addEventListener('submit', (evt) => { 
-  evt.preventDefault();  
+popupTypeEdit.addEventListener('submit', (evt) => {
+  evt.preventDefault();
   profileName.textContent = formName.value;
   profileTask.textContent = formAbout.value;
-  popupTypeEdit.classList.remove("popup_opened"); 
+  popupTypeEdit.classList.remove("popup_opened");
 })
 
-function createCard(card) { 
-  const cardItem = cardTemplate.cloneNode(true)    
+function createCard(card) {
+  const cardItem = cardTemplate.cloneNode(true)
   const cardText = cardItem.querySelector('.element__name-text')
   const cardImg = cardItem.querySelector('.element__item')
   const trashBtn = cardItem.querySelector('.element__btn_type_trash')
   const btnlike = cardItem.querySelector('.element__name-heart')
   const popupTypeImage = document.querySelector('.popup_type_image');
   const popupImage = document.querySelector('.popup__image');
-  const popupCaption = document.querySelector('.popup__caption');
-  const elementBtnImage = document.querySelector('.element__btn_type_image');
+  const popupCaption = document.querySelector('.popup__caption');  
       
   cardText.textContent = card.name
   cardImg.style.backgroundImage = `url(${card.link})`
@@ -106,18 +108,18 @@ function createCard(card) {
   cardImg.addEventListener('click', (evt) => {
     evt.preventDefault();    
     popupTypeImage.classList.toggle("popup_opened");
-    const link = cardImg.getAttribute("style");    
-    popupImage.setAttribute("src", card.link);    
+    popupImage.setAttribute("src", card.link);
     popupCaption.textContent = card.name;
  })
-  cardsContainer.append(cardItem)  
+  cardsContainer.prepend(cardItem)  
 }
 
 addSubmit.addEventListener("submit", (evt) => {
   evt.preventDefault();
   createCard({name:formTitle.value, link:formLink.value})
   popupTypeAdd.classList.remove("popup_opened");
-  cardsContainer.prepend(cardItem) 
+  //cardsContainer.prepend(cardItem) 
 })
 
+cardData.reverse();
 cardData.forEach(createCard);

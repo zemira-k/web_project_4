@@ -6,15 +6,15 @@
   top: -40px;
   background-color: rgb(0, 0, 0, 0);
   border: none;
-  position: absolute;
+  position: absolute;  
   cursor: pointer;
   right: -40px;
-  padding: 0;
+  padding: 0;  
   background-position: center center;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0.5s, opacity 0.5s linear;
 }
 
-.popup__close:hover {
+.popup__close:hover { 
   opacity: 0.6;
 }
 
