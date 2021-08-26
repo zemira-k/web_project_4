@@ -45,14 +45,14 @@ const profileName = document.querySelector('.profile__name');
 const profileTask = document.querySelector('.profile__task');
 
 // submit new card
-addSubmit.addEventListener("submit", () => {    
+/*addSubmit.addEventListener("submit", () => {    
   const newCard = [];
   newCard[0] = formTitle.value;
   newCard[1] = formLink.value;  
   cardData.unshift(newCard);  
-  cardsContainer.prepend(createCard(card));
+  cardsContainer.prepend(createCard(newCard));
   popupTypeAdd.classList.remove("popup_opened"); 
-  })
+  })*/
 
 // open form to edit profile
 editbutton.addEventListener("click", () => {
@@ -90,8 +90,7 @@ popupTypeEdit.addEventListener('submit', (evt) => {
 })
 
 function createCard(card) { 
-  const cardItem = cardTemplate.cloneNode(true)
-    
+  const cardItem = cardTemplate.cloneNode(true)    
   const cardText = cardItem.querySelector('.element__name-text')
   const cardImg = cardItem.querySelector('.element__item')
   const trashBtn = cardItem.querySelector('.element__btn_type_trash')
@@ -99,6 +98,8 @@ function createCard(card) {
   const popupTypeImage = document.querySelector('.popup_type_image');
   const popupImage = document.querySelector('.popup__image');
   const popupCaption = document.querySelector('.popup__caption');
+  const elementBtnImage = document.querySelector('.element__btn_type_image');
+  
     
   cardText.textContent = card.name
   cardImg.style.backgroundImage = `url(${card.link})`
@@ -115,11 +116,57 @@ function createCard(card) {
 
   cardImg.addEventListener('click', (evt) => {
     evt.preventDefault();    
-    popupTypeImage.classList.toggle("popup_opened")   
-    popupImage.setAttribute("src", "cardImg.URL")
+    popupTypeImage.classList.toggle("popup_opened");
+    const link = cardImg.getAttribute("style")
+    console.log(link);
+    popupImage.setAttribute("src", link);    
     popupCaption.textContent = cardText.value;
-  })
+ })
   cardsContainer.append(cardItem) 
 }
+
+
+
+
+function createNewCard(title, imglink) {
+  const cardTemplate = document.querySelector('.card-template').content;
+  const card = cardTemplate.querySelector('.element').cloneNode(true);
+  //const card = cardTemplate.cloneNode(true)
+  const cardImg = card.querySelector('.element__item');
+  const cardText = card.querySelector('.element__name-text');
+  
+  cardText.textContent = title;  
+  //cardImg.style.backgroundImage = `url(${imglink})`   
+  cardImg.setAttribute("src", imglink);  
+  cardImg.setAttribute("alt", title);
+  return card;
+}
+
+
+
+addSubmit.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const cardTemplate = document.querySelector('.card-template').content;
+  const card = cardTemplate.querySelector('.element').cloneNode(true);
+  const title = formTitle.value;
+  const link = formLink.value;  
+  cardsContainer.prepend(createNewCard(title, link));
+  popupTypeAdd.classList.remove("popup_opened");
+
+  const trashBtn = card.querySelector('.element__btn_type_trash')
+  const btnlike = card.querySelector('.element__name-heart')
+  
+  btnlike.addEventListener("click", (evt) => { 
+    evt.preventDefault();    
+    btnlike.classList.toggle("element__name-heart_type_black")
+  })
+  
+  trashBtn.addEventListener('click', (evt) => {
+    evt.preventDefault(); 
+    cardItem.remove();
+  });
+})
+
+
 
 cardData.forEach(createCard);

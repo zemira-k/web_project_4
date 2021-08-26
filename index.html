@@ -45,6 +45,16 @@
                 </div>
             </div>
 
+            <div class="popup popup_type_image">
+                <div class="popup__container">
+                    <button class="popup__close popup__close_type_image" type="button"></button>
+                    <figure>
+                        <img class="popup__image" src="" alt="">
+                        <figcaption class="popup__caption"></figcaption>
+                    </figure>
+                </div>
+            </div>
+
             <section class="profile">
                 <img class="profile__avatar" src="./images/avatar.svg" alt="avatar">
                 <div class="profile__info">
@@ -69,8 +79,10 @@
 
         <template class="card-template">
             <article class="element">
-                <img class="element__item" src=" ">
-                <button class="element__btn" type="button">
+                <button class="element__btn element__btn_type_image" type="button">
+                    <img class="element__item" src=" ">
+                </button>
+                <button class="element__btn element__btn_type_trash" type="button">
                     <img class="element__trash" src="images/Trash.png" alt="trash">
                 </button>
                 <div class="element__name">
@@ -81,7 +93,6 @@
         </template>
 
     </div>
-
     <script src="./script.js"></script>
 </body>
 
