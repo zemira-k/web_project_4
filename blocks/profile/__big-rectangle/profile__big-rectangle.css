@@ -11,6 +11,7 @@
   background-position: center;
   background-size: 22px;
   cursor: pointer;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .profile__big-rectangle:hover {

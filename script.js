@@ -106,17 +106,18 @@ function createCard(card) {
   cardImg.addEventListener('click', (evt) => {
     evt.preventDefault();    
     popupTypeImage.classList.toggle("popup_opened");
-    const link = cardImg.getAttribute("style")
-    console.log(link);
+    const link = cardImg.getAttribute("style");    
     popupImage.setAttribute("src", card.link);    
     popupCaption.textContent = card.name;
  })
-  cardsContainer.append(cardItem) 
+  cardsContainer.append(cardItem)  
 }
 
 addSubmit.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  createCard({name:formTitle.value, link:formLink.value})  
+  createCard({name:formTitle.value, link:formLink.value})
+  popupTypeAdd.classList.remove("popup_opened");
+  cardsContainer.prepend(cardItem) 
 })
 
 cardData.forEach(createCard);
