@@ -82,6 +82,7 @@ popupTypeEdit.addEventListener('submit', (evt) => {
   popupTypeEdit.classList.remove("popup_opened");
 })
 
+// function for all the cards events
 function createCard(card) {
   const cardItem = cardTemplate.cloneNode(true)
   const cardText = cardItem.querySelector('.element__name-text')
@@ -95,31 +96,37 @@ function createCard(card) {
   cardText.textContent = card.name
   cardImg.style.backgroundImage = `url(${card.link})`
 
+// toogling the like button
   btnlike.addEventListener("click", (evt) => { 
     evt.preventDefault();    
     btnlike.classList.toggle("element__name-heart_type_black")
   })
   
+// removing a card
   trashBtn.addEventListener('click', (evt) => {
     evt.preventDefault(); 
     cardItem.remove();
   });
 
+// opening a big card
   cardImg.addEventListener('click', (evt) => {
     evt.preventDefault();    
     popupTypeImage.classList.toggle("popup_opened");
     popupImage.setAttribute("src", card.link);
     popupCaption.textContent = card.name;
  })
+
+// insert a card in the top of the list
   cardsContainer.prepend(cardItem)  
 }
 
+//submit a new card
 addSubmit.addEventListener("submit", (evt) => {
   evt.preventDefault();
   createCard({name:formTitle.value, link:formLink.value})
-  popupTypeAdd.classList.remove("popup_opened");
-  //cardsContainer.prepend(cardItem) 
+  popupTypeAdd.classList.remove("popup_opened");  
 })
 
+// arrange the 6 cards by reverse
 cardData.reverse();
 cardData.forEach(createCard);

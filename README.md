@@ -2,27 +2,29 @@
 
 ## Project Name: Around The U.S.
 
-## Project description and its functionality: 
-* In the header there is a logo with the name of the project. 
-* The Profile section contains an image-avatar, a name of a person and his task/job, an edit button, and an add button.
-* There is a form that pups up when clicking the edit button. in the form the user can type a name and task to edit the page. when clicking save or "x" button the form is closed.
-* A grid of 6 photoes of places and their name with a heart to click for "like". 
-* And a footer with copyright.
+### Project description and its functionality: 
+* When you open the project, you can see the main page, that includes: header - logo, footer - copyright, main content - avatar image with name and job description, and six pictures of places and discription.
+* There are a few elemts you can click on:
+1. Edit button - to edit profile name and description.
+2. Add button - to add a place card with image and description.
+3. Like button - on each picture you can choose the like button wich will change to a full black heart.
+4. Clicking on an image will open a popup window with a large image.
 
-## Technologies and techniques used: 
-* Some parts are arranged with flex, and others with grid. 
-* In html I used tags like - body, main. footer, section, img, a, p, form, button, input.. 
-* Each block and element has a class. 
-* All classes are arranged in folders and files according to BEM. 
+### Technologies and techniques used: 
+* BEM metodologi.
+* Popup windows.
+* Template elements.
 
 ### In css I used - 
 * Percentage width for block classes, so the page will be responsive. 
 * Grid for the six elements of images. Arranged them with grid-template-column, grid-template-rows and grid gap. 
 * Media queries for breaking points. 
 * The pseudo class "hover" for all the links.
+* Transition for opening and closing forms images etc.
 
 ### In JS I used - 
-* function for opening and closing and submiting the form.
+* An array of the first six pictures and description
+* Function for opening, closing and submiting all the forms.
+* A function for all the cards events.
 
 ## Link to GitHub pages: https://zemira-k.github.io/web_project_4/
-
