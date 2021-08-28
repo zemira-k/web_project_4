@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   width: calc(100% - 289px);
+  align-self: center;
 }
 
 @media screen and (max-width: 900px) {
