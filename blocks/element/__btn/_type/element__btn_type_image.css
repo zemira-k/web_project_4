@@ -1,9 +1,9 @@
 .element__btn_type_image {
     width: 100%;
-    border-radius: 10px 10px 0 0;        
+    border-radius: 10px 10px 0 0;
     z-index: 1;
-    height: 76.2%;    
-    position: relative;   
+    height: 76.2%;
+    position: relative;
 }
 
 .element__btn_type_image::after {
