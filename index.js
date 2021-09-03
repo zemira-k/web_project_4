@@ -41,6 +41,10 @@ const popupCloseCard = document.querySelector(".popup__close_type_card");
 const popupCloseProfile = document.querySelector(".popup__close_type_profile");
 const popupCloseImage = document.querySelector(".popup__close_type_image");
 
+// forms to submit
+const editSubmit = document.querySelector(".form_type_profile");
+const formAdd = document.forms.formAddCard;
+
 // open buttons
 const editButton = document.querySelector(".profile__editbutton");
 const addCard = document.querySelector(".profile__big-rectangle");
@@ -52,6 +56,8 @@ const profileTask = document.querySelector(".profile__task");
 // inputs
 const formName = document.querySelector(".form__input_type_name");
 const formAbout = document.querySelector(".form__input_type_about");
+const formTitle = document.querySelector(".form__input_type_title");
+const formLink = document.querySelector(".form__input_type_img-link");
 
 // open popup
 function openModalWindow(modalWindow) {
@@ -86,6 +92,13 @@ function editProfileValue() {
   profileTask.textContent = formAbout.value;
 }
 
+//submit edit form
+popupTypeEdit.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  editProfileValue();
+  closeModalWindow(popupTypeEdit);
+});
+
 // call functions to open form to add card
 addCard.addEventListener("click", () => {
   openModalWindow(popupTypeAdd);
@@ -96,6 +109,13 @@ popupCloseCard.addEventListener("click", () => {
   closeModalWindow(popupTypeAdd);
 });
 
+//submit form of add card
+formAdd.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  createCard({ name: formTitle.value, link: formLink.value });
+  closeModalWindow(popupTypeAdd);
+});
+
 // call functions to close big image
 popupCloseImage.addEventListener("click", () => {
   closeModalWindow(popupTypeImage);
@@ -103,7 +123,7 @@ popupCloseImage.addEventListener("click", () => {
 
 // function for all the cards events
 function createCard(card) {
-  debugger
+  debugger;
   const cardItem = cardTemplate.cloneNode(true);
   const cardText = cardItem.querySelector(".element__name-text");
   const cardImage = cardItem.querySelector(".element__item");
