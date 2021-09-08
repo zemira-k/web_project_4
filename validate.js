@@ -3,7 +3,7 @@ function toggleButtonState(inputList, buttonElement, settings) {
   const { inactiveButtonClass } = settings;
   if (isFormValid) {
     buttonElement.disabled = false;
-    buttonElement.classList.remove(inactiveButtonClass);    
+    buttonElement.classList.remove(inactiveButtonClass);
   } else {
     buttonElement.disabled = "disabled";
     buttonElement.classList.add(inactiveButtonClass);
@@ -30,7 +30,7 @@ function hideInputError(inputElement, settings) {
 }
 
 // check Input Validity
-function checkInputValidity(inputElement, settings) {  
+function checkInputValidity(inputElement, settings) {
   if (!inputElement.validity.valid) {
     showInputError(inputElement, settings);
   } else {
@@ -42,13 +42,9 @@ function enableValidation(settings) {
   const { formSelector, inputSelector, submitButtonSelector, ...rest } =
     settings;
   const formList = Array.from(document.querySelectorAll(formSelector));
-
   formList.forEach((formElement) => {
-    //formElement.addEventListener("submit", (evt) => evt.preventDefault());    
-
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     const buttonElement = formElement.querySelector(submitButtonSelector);
-
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         checkInputValidity(inputElement, rest);

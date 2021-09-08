@@ -64,13 +64,13 @@ const buttonEdit = document.querySelector(".form__button_type_edit");
 
 // reset form
 function resetForm() {
-  const popup = document.querySelector(".popup_opened");  
+  const popup = document.querySelector(".popup_opened");
   const inputList = Array.from(popup.querySelectorAll(".form__input"));
-  inputList.forEach((inputElement) => {    
-    const errorElement = popup.querySelector(`#${inputElement.id}-error`);    
+  inputList.forEach((inputElement) => {
+    const errorElement = popup.querySelector(`#${inputElement.id}-error`);
     errorElement.classList.remove("form__input-error_active");
-    errorElement.textContent = "";    
-    inputElement.classList.add("form__input_type_error");    
+    errorElement.textContent = "";
+    inputElement.classList.add("form__input_type_error");
   });
   closeModalWindow(popup);
 }
@@ -78,12 +78,12 @@ function resetForm() {
 // reset form-Edit
 function resetFormEditValue() {
   inputName.value = profileName.textContent;
-  inputAbout.value = profileTask.textContent;  
+  inputAbout.value = profileTask.textContent;
   buttonEdit.disabled = false;
   buttonEdit.classList.remove("form__button_disabled");
   const inputList = Array.from(popupTypeEdit.querySelectorAll(".form__input"));
   inputList.forEach((inputElement) => {
-    inputElement.classList.remove("form__input_type_error");    
+    inputElement.classList.remove("form__input_type_error");
   });
 }
 
@@ -129,14 +129,14 @@ function closeModalWindow(modalWindow) {
 }
 
 // call functions to edit profile
-editButton.addEventListener("click", () => {  
-  resetFormEditValue();  
-  openModalWindow(popupTypeEdit);  
+editButton.addEventListener("click", () => {
+  resetFormEditValue();
+  openModalWindow(popupTypeEdit);
 });
 
 // call functions to close & reset form of edit profile
 popupCloseProfile.addEventListener("click", () => {
-  resetForm();  
+  resetForm();
 });
 
 // edit value of profile
@@ -147,30 +147,30 @@ function editProfileValue() {
 
 //submit edit form
 popupTypeEdit.addEventListener("submit", (evt) => {
-  evt.preventDefault();  
+  evt.preventDefault();
   editProfileValue();
   closeModalWindow(popupTypeEdit);
 });
 
 // call functions to open form to add card
-addCard.addEventListener("click", () => {  
+addCard.addEventListener("click", () => {
   openModalWindow(popupTypeAdd);
 });
 
 // call functions to close & reset form of add card
-popupCloseCard.addEventListener("click", () => {  
+popupCloseCard.addEventListener("click", () => {
   resetForm();
   buttonAdd.disabled = "disabled";
-  buttonAdd.classList.add("form__button_disabled");  
+  buttonAdd.classList.add("form__button_disabled");
   formAdd.reset();
 });
 
 //submit form of add card
 formAdd.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  createCard({ name: inputTitle.value, link: inputLink.value });  
+  createCard({ name: inputTitle.value, link: inputLink.value });
   resetForm();
-  formAdd.reset();  
+  formAdd.reset();
 });
 
 // call functions to close big image
