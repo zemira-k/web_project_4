@@ -62,29 +62,10 @@ const inputLink = document.querySelector(".form__input_type_img-link");
 const buttonAdd = document.querySelector(".form__button_type_add");
 const buttonEdit = document.querySelector(".form__button_type_edit");
 
-// reset form
-function resetForm() {
-  const popup = document.querySelector(".popup_opened");
-  const inputList = Array.from(popup.querySelectorAll(".form__input"));
-  inputList.forEach((inputElement) => {
-    const errorElement = popup.querySelector(`#${inputElement.id}-error`);
-    errorElement.classList.remove("form__input-error_active");
-    errorElement.textContent = "";
-    inputElement.classList.add("form__input_type_error");
-  });
-  closeModalWindow(popup);
-}
-
-// reset form-Edit
+// reset form-Edit value
 function resetFormEditValue() {
   inputName.value = profileName.textContent;
-  inputAbout.value = profileTask.textContent;
-  buttonEdit.disabled = false;
-  buttonEdit.classList.remove("form__button_disabled");
-  const inputList = Array.from(popupTypeEdit.querySelectorAll(".form__input"));
-  inputList.forEach((inputElement) => {
-    inputElement.classList.remove("form__input_type_error");
-  });
+  inputAbout.value = profileTask.textContent;  
 }
 
 // listener of keydown & click
@@ -103,8 +84,7 @@ function removeListener() {
 function closeOnEscape(evt) {
   if (evt.key === "Escape") {
     const popup = document.querySelector(".popup_opened");
-    closeModalWindow(popup);
-    removeListener();
+    closeModalWindow(popup);    
   }
 }
 
@@ -112,8 +92,7 @@ function closeOnEscape(evt) {
 function closeOnClickPopupOverlay(evt) {
   const popup = document.querySelector(".popup_opened");
   if (evt.target === popup) {
-    closeModalWindow(popup);
-    removeListener();
+    closeModalWindow(popup);    
   }
 }
 
@@ -125,7 +104,11 @@ function openModalWindow(modalWindow) {
 
 //close popup
 function closeModalWindow(modalWindow) {
-  modalWindow.classList.remove("popup_opened");
+  if (modalWindow !== popupTypeImage) {
+  resetValidation(config, modalWindow);
+  }
+  modalWindow.classList.remove("popup_opened");  
+  removeListener();
 }
 
 // call functions to edit profile
@@ -135,8 +118,8 @@ editButton.addEventListener("click", () => {
 });
 
 // call functions to close & reset form of edit profile
-popupCloseProfile.addEventListener("click", () => {
-  resetForm();
+popupCloseProfile.addEventListener("click", () => {  
+  closeModalWindow(popupTypeEdit);
 });
 
 // edit value of profile
@@ -158,18 +141,16 @@ addCard.addEventListener("click", () => {
 });
 
 // call functions to close & reset form of add card
-popupCloseCard.addEventListener("click", () => {
-  resetForm();
-  buttonAdd.disabled = "disabled";
-  buttonAdd.classList.add("form__button_disabled");
+popupCloseCard.addEventListener("click", () => {  
+  closeModalWindow(popupTypeAdd);
   formAdd.reset();
 });
 
 //submit form of add card
 formAdd.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  createCard({ name: inputTitle.value, link: inputLink.value });
-  resetForm();
+  createCard({ name: inputTitle.value, link: inputLink.value });  
+  closeModalWindow(popupTypeAdd);
   formAdd.reset();
 });
 

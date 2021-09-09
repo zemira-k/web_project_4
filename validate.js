@@ -1,3 +1,16 @@
+// reset validation
+function resetValidation(settings, modalWindow) {
+  const { inputSelector, submitButtonSelector, inactiveButtonClass } = settings;
+  const inputList = Array.from(modalWindow.querySelectorAll(inputSelector));
+  inputList.forEach((inputElement) => {
+    hideInputError(inputElement, settings);    
+  });
+  const buttonElement = modalWindow.querySelector(submitButtonSelector);
+  buttonElement.disabled = "disabled";
+  buttonElement.classList.add(inactiveButtonClass);
+}
+
+// toggle Button State
 function toggleButtonState(inputList, buttonElement, settings) {
   const isFormValid = inputList.every((inputList) => inputList.validity.valid);
   const { inactiveButtonClass } = settings;
