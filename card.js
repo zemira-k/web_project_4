@@ -1,47 +1,64 @@
-import {openModalWindow, popupTypeImage, popupImage, popupCaption} from "./utils.js";
+import {
+  openModalWindow,
+  popupTypeImage,
+  popupImage,
+  popupCaption,
+} from "./utils.js";
 
 export class Card {
-    constructor({name, link}, cardSelector) {
-      this._name = name;
-		  this._link = link;
-      this._cardSelector = cardSelector;
+  constructor({ name, link }, cardSelector) {
+    this._name = name;
+    this._link = link;
+    this._cardSelector = cardSelector;
 
-      this._cardTemplate = document.querySelector(this._cardSelector)
+    this._cardTemplate = document
+      .querySelector(this._cardSelector)
       .content.querySelector(".element");
-    }
+  }
 
-    _handleLikeBtnToggle = (evt) => evt.target.classList.toggle("element__name-heart_type_black");
+  // handles
 
-    _handleRemoveCard = () => {
-      this._cardElement.remove();     
-      this._cardElement= "null";  
-    }
+  _handleLikeBtnToggle = (evt) =>
+    evt.target.classList.toggle("element__name-heart_type_black");
 
-    _handleOpenPopupImage = () => {       
-      popupImage.setAttribute("src", this._link);  
-      popupImage.setAttribute("alt", this._name);  
-      popupCaption.textContent = this._name;
-      openModalWindow(popupTypeImage);    
-    }
+  _handleRemoveCard = () => {
+    this._cardElement.remove();
+    this._cardElement = "null";
+  };
+
+  _handleOpenPopupImage = () => {
+    popupImage.setAttribute("src", this._link);
+    popupImage.setAttribute("alt", this._name);
+    popupCaption.textContent = this._name;
+    openModalWindow(popupTypeImage);
+  };
+
+  // listeners
 
   _addEventListeners() {
     const likeBtn = this._cardElement.querySelector(".element__name-heart");
-    const trashBtn = this._cardElement.querySelector(".element__btn_type_trash");
-    const openPopupImage = this._cardElement.querySelector(".element__btn_type_image"); 
+    const trashBtn = this._cardElement.querySelector(
+      ".element__btn_type_trash"
+    );
+    const openPopupImage = this._cardElement.querySelector(
+      ".element__btn_type_image"
+    );
 
     likeBtn.addEventListener("click", this._handleLikeBtnToggle);
     trashBtn.addEventListener("click", this._handleRemoveCard);
     openPopupImage.addEventListener("click", this._handleOpenPopupImage);
   }
 
-    getCardElement() {
-      this._cardElement = this._cardTemplate.cloneNode(true);
-      const cardImage = this._cardElement.querySelector(".element__item");
-      
-      cardImage.src = this._link;
-      this._cardElement.querySelector(".element__name-text").textContent = this._name;
+  // create card element
+  getCardElement() {
+    this._cardElement = this._cardTemplate.cloneNode(true);
+    const cardImage = this._cardElement.querySelector(".element__item");
 
-      this._addEventListeners();
-      return this._cardElement;
-    }      
-} 
+    cardImage.src = this._link;
+    this._cardElement.querySelector(".element__name-text").textContent =
+      this._name;
+
+    this._addEventListeners();
+    return this._cardElement;
+  }
+}

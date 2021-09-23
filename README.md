@@ -16,7 +16,10 @@
 * BEM metodologi.
 * Popup windows.
 * Template elements.
-* settings object
+* Settings object.
+* Classes in JS.
+* import and export.
+* module type of script.
 
 ### In css I used - 
 * Percentage width for block classes, so the page will be responsive. 
@@ -28,9 +31,15 @@
 ### In JS I used - 
 * An array of the first six pictures and description
 * Function for opening, closing and submiting all the forms.
-* A function for all the cards events.
-* A function to check input validity - calls hide error/show error functions, as needed.
-* A toggle button function which makes the button disabled or non-disabled.
 * A keyHandler for closing popups by clicking outside the popup or by clicking escape.
+* Two JS classes - Card class & Validator class
+  In Card class there is:
+  1. A function of creating new card.
+  2. listeners & handles for like-button, delete-button, Image preview.
+  In Validator class there is:
+  1. run validation and reset validation functions.
+  2. A function to check input validity - calls hide error/show error functions, as needed.
+  3. A toggle button function which makes the button disabled or non-disabled.
+
 
 ## Link to GitHub pages: https://zemira-k.github.io/web_project_4/
