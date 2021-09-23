@@ -33,10 +33,10 @@
 * Function for opening, closing and submiting all the forms.
 * A keyHandler for closing popups by clicking outside the popup or by clicking escape.
 * Two JS classes - Card class & Validator class
-  In Card class there is:
+  * In Card class there is:
   1. A function of creating new card.
   2. listeners & handles for like-button, delete-button, Image preview.
-  In Validator class there is:
+  * In Validator class there is:
   1. run validation and reset validation functions.
   2. A function to check input validity - calls hide error/show error functions, as needed.
   3. A toggle button function which makes the button disabled or non-disabled.
