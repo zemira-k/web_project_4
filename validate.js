@@ -1,5 +1,6 @@
+/*
 // reset validation
-function resetValidation(settings, modalWindow) {
+export default function resetValidation(settings, modalWindow) {
   const { inputSelector, submitButtonSelector, inactiveButtonClass } = settings;
   const inputList = Array.from(modalWindow.querySelectorAll(inputSelector));
   inputList.forEach((inputElement) => {
@@ -67,7 +68,7 @@ function enableValidation(settings) {
   });
 }
 
-const config = {
+export const config = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -76,4 +77,4 @@ const config = {
   errorClass: "form__input-error_active",
 };
 
-enableValidation(config);
+enableValidation(config);*/
