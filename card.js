@@ -26,6 +26,7 @@ export class Card {
     this._cardElement = "null";
   };
 
+  // My tutor said that this is requirement for 8th sprint and I can not fix it
   _handleOpenPopupImage = () => {
     popupImage.setAttribute("src", this._link);
     popupImage.setAttribute("alt", this._name);

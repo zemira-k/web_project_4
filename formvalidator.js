@@ -54,7 +54,7 @@ export class FormValidator {
 
   // reset validation
   resetValidation = () => {
-    const { inputSelector, submitButtonSelector, inactiveButtonClass } =
+    const { inputSelector } =
       this._settings;
     const inputList = Array.from(
       this._formElement.querySelectorAll(inputSelector)
@@ -62,9 +62,7 @@ export class FormValidator {
     inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
-    const buttonElement = this._formElement.querySelector(submitButtonSelector);
-    buttonElement.disabled = "disabled";
-    buttonElement.classList.add(inactiveButtonClass);
+    this._toggleButtonState(inputList);
   };
 
   // run validation

@@ -130,7 +130,7 @@ popupCloseCard.addEventListener("click", () => {
 //submit form of add card
 formAdd.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  renderElements({ name: inputTitle.value, link: inputLink.value });
+  renderElement({ name: inputTitle.value, link: inputLink.value });
   closeModalWindow(popupTypeAdd);
   formAdd.reset();
 });
@@ -141,12 +141,12 @@ popupCloseImage.addEventListener("click", () => {
 });
 
 // create cards
-const renderElements = (item) => {
+const renderElement = (item) => {
   const card = new Card(item, ".card-template");
   const cardElement = card.getCardElement();
   cardsContainer.prepend(cardElement);
 };
 
 cardList.forEach((card) => {
-  renderElements(card);
+  renderElement(card);
 });
