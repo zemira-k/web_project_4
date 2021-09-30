@@ -5,7 +5,7 @@ export class PopupWithImage extends Popup {
     super(popupSelector);
   }
 
-  open(name, link) {
+  open(link, name) {
     const imageElement = this._popupElement.querySelector(".popup__image");
     const captionElement = this._popupElement.querySelector(".popup__caption");
 
@@ -15,4 +15,9 @@ export class PopupWithImage extends Popup {
     
     super.open();
   }
+  
+  setEventListeners() {
+    super.setEventListeners()
+  }
+
 }

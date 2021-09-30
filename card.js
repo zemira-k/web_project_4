@@ -1,13 +1,11 @@
-import { PopupWithImage } from "./popupWithImage.js";
-
-const popupBigImage = new PopupWithImage(".popup_type_image")
+//import { PopupWithImage } from "./PopupWithImage.js"
 
 export class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, {handleCardClick}) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-
+    this._handleCardClick = handleCardClick;
     this._cardTemplate = document
       .querySelector(this._cardSelector)
       .content.querySelector(".element");
@@ -21,15 +19,15 @@ export class Card {
     this._cardElement.remove();
     this._cardElement = "null";
   };
-
-  _handleOpenPopupImage = () => {    
-    popupBigImage.open(this._name, this._link)
-
-  };
-
+/*
+  _handleCardClick = () => {
+    const popupImage = new PopupWithImage(".popup_type_image")
+    console.log(this._link, this._name)
+    popupImage.open(this._link, this._name); 
+  }
+*/
   // listeners
-
-  _addEventListeners() {
+  _addEventListeners() {    
     const likeBtn = this._cardElement.querySelector(".element__name-heart");
     const trashBtn = this._cardElement.querySelector(
       ".element__btn_type_trash"
@@ -40,11 +38,11 @@ export class Card {
 
     likeBtn.addEventListener("click", this._handleLikeBtnToggle);
     trashBtn.addEventListener("click", this._handleRemoveCard);
-    openPopupImage.addEventListener("click", this._handleOpenPopupImage);
+    openPopupImage.addEventListener("click", this._handleCardClick);
   }
 
   // create card element
-  getCardElement() {
+  getCardElement() {    
     this._cardElement = this._cardTemplate.cloneNode(true);
     const cardImage = this._cardElement.querySelector(".element__item");
 
