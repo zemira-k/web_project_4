@@ -1,9 +1,6 @@
-import {
-  openModalWindow,
-  popupTypeImage,
-  popupImage,
-  popupCaption,
-} from "./utils.js";
+import { PopupWithImage } from "./popupWithImage.js";
+
+const popupBigImage = new PopupWithImage(".popup_type_image")
 
 export class Card {
   constructor({ name, link }, cardSelector) {
@@ -17,7 +14,6 @@ export class Card {
   }
 
   // handles
-
   _handleLikeBtnToggle = (evt) =>
     evt.target.classList.toggle("element__name-heart_type_black");
 
@@ -26,12 +22,9 @@ export class Card {
     this._cardElement = "null";
   };
 
-  // My tutor said that this is requirement for 8th sprint and I can not fix it
-  _handleOpenPopupImage = () => {
-    popupImage.setAttribute("src", this._link);
-    popupImage.setAttribute("alt", this._name);
-    popupCaption.textContent = this._name;
-    openModalWindow(popupTypeImage);
+  _handleOpenPopupImage = () => {    
+    popupBigImage.open(this._name, this._link)
+
   };
 
   // listeners

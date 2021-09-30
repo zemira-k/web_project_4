@@ -54,8 +54,7 @@ export class FormValidator {
 
   // reset validation
   resetValidation = () => {
-    const { inputSelector } =
-      this._settings;
+    const { inputSelector } = this._settings;
     const inputList = Array.from(
       this._formElement.querySelectorAll(inputSelector)
     );
