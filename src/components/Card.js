@@ -3,7 +3,7 @@ export class Card {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
+    this._handleCardClick = handleCardClick;    
     this._cardTemplate = document
       .querySelector(this._cardSelector)
       .content.querySelector(".element");
@@ -15,7 +15,7 @@ export class Card {
 
   _handleRemoveCard = () => {
     this._cardElement.remove();
-    this._cardElement = "null";
+    this._cardElement = null;
   };
 
   // listeners
@@ -37,11 +37,10 @@ export class Card {
   getCardElement() {
     this._cardElement = this._cardTemplate.cloneNode(true);
     const cardImage = this._cardElement.querySelector(".element__item");
-
     cardImage.src = this._link;
+    cardImage.alt = this._name;
     this._cardElement.querySelector(".element__name-text").textContent =
       this._name;
-
     this._addEventListeners();
     return this._cardElement;
   }
