@@ -1,7 +1,5 @@
-//import { PopupWithImage } from "./PopupWithImage.js"
-
 export class Card {
-  constructor({ name, link }, cardSelector, {handleCardClick}) {
+  constructor({ name, link }, cardSelector, { handleCardClick }) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
@@ -19,15 +17,9 @@ export class Card {
     this._cardElement.remove();
     this._cardElement = "null";
   };
-/*
-  _handleCardClick = () => {
-    const popupImage = new PopupWithImage(".popup_type_image")
-    console.log(this._link, this._name)
-    popupImage.open(this._link, this._name); 
-  }
-*/
+
   // listeners
-  _addEventListeners() {    
+  _addEventListeners() {
     const likeBtn = this._cardElement.querySelector(".element__name-heart");
     const trashBtn = this._cardElement.querySelector(
       ".element__btn_type_trash"
@@ -42,7 +34,7 @@ export class Card {
   }
 
   // create card element
-  getCardElement() {    
+  getCardElement() {
     this._cardElement = this._cardTemplate.cloneNode(true);
     const cardImage = this._cardElement.querySelector(".element__item");
 

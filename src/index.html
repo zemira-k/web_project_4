@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Around The U.S.</title>
 </head>
 
@@ -22,13 +21,13 @@
                     <form class="form form_type_add" name="formAddCard" novalidate>
                         <h2 class="form__header">New place</h2>
                         <fieldset class="form__set">
-                            <input class="form__input form__input_type_error form__input_type_title" type="text"
-                                name="formTitle" id="formTitle" placeholder="Title" minlength="1" maxlength="30"
-                                required pattern=".*\S.*">
+                            <input class="form__input form__input_type_title" type="text" name="formTitle"
+                                id="formTitle" placeholder="Title" minlength="1" maxlength="30" required
+                                pattern=".*\S.*">
                             <span class="form__input-error form__input-error_type_title form__input-error_active"
                                 id="formTitle-error"></span>
-                            <input class="form__input form__input_type_error form__input_type_img-link" type="url"
-                                name="formLink" id="formLink" placeholder="Image link" required>
+                            <input class="form__input form__input_type_img-link" type="url" name="formLink"
+                                id="formLink" placeholder="Image link" required>
                             <span class="form__input-error form__input-error_type_img-link form__input-error_active"
                                 id="formLink-error"></span>
                             <button aria-label="submit" class="form__button form__button_type_add form__button_disabled"
@@ -53,7 +52,8 @@
                                 id="formAbout" minlength="2" maxlength="200" required pattern=".*\S.*">
                             <span class="form__input-error form__input-error_type_about form__input-error_active"
                                 id="formAbout-error"></span>
-                            <button aria-label="submit" class="form__button form__button_type_edit"
+                            <button aria-label="submit"
+                                class="form__button form__button_type_edit form__button_disabled"
                                 type="submit">save</button>
                         </fieldset>
                     </form>
@@ -71,7 +71,7 @@
             </div>
 
             <section class="profile">
-                <img class="profile__avatar" src="./images/avatar.svg" alt="avatar">
+                <img class="profile__avatar" src="<%= require('./images/avatar.svg')%>" alt="avatar">
                 <div class="profile__info">
                     <div class="profile__caption">
                         <h1 class="profile__name" id="name">Jacques Cousteau</h1>
@@ -98,7 +98,7 @@
                     <img class="element__item" src=" ">
                 </button>
                 <button class="element__btn element__btn_type_trash" type="button">
-                    <img class="element__trash" src="images/Trash.png" alt="trash">
+                    <img class="element__trash" src="<%= require('./images/Trash.png')%>" alt="trash">
                 </button>
                 <div class="element__name">
                     <h2 class="element__name-text"></h2>
@@ -106,18 +106,8 @@
                 </div>
             </article>
         </template>
-        
+
     </div>
-
-    <script type="module" src="./formvalidator.js"></script>
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="./card.js"></script>
-    <script type="module" src="./section.js"></script>
-    <script type="module" src="./popup.js"></script>
-    <script type="module" src="./popupWithImage.js"></script>
-    <script type="module" src="./popupWithForm.js"></script>
-    <script type="module" src="./userInfo.js"></script>
-
 </body>
 
 </html>
