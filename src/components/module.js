@@ -6,32 +6,33 @@ export const config = {
   errorClass: "form__input-error_active",
 };
 
-export const cardList = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
+export const cardList = [];
+// export const cardList = [
+//   {
+//     name: "Yosemite Valley",
+//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+//   },
+//   {
+//     name: "Lake Louise",
+//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+//   },
+//   {
+//     name: "Bald Mountains",
+//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+//   },
+//   {
+//     name: "Latemar",
+//     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+//   },
+//   {
+//     name: "Vanoise National Park",
+//     link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+//   },
+//   {
+//     name: "Lago di Braies",
+//     link: "https://code.s3.yandex.net/web-code/lago.jpg",
+//   },
+// ];
 
 // card container
 export const cardsContainer = document.querySelector(".elements");
@@ -53,3 +54,8 @@ export const addCard = document.querySelector(".profile__big-rectangle");
 // inputs
 export const inputName = document.querySelector(".form__input_type_name");
 export const inputAbout = document.querySelector(".form__input_type_about");
+
+// profile data
+export const profileName = document.querySelector(".profile__name");
+export const profileTask = document.querySelector(".profile__task");
+export const profileAvatar = document.querySelector(".profile__avatar");

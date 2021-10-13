@@ -20,13 +20,16 @@
 @import url('../blocks/element/__trash/element__trash.css');
 @import url('../blocks/element/__item/element__item.css');
 @import url('../blocks/element/__name/element__name.css');
+@import url('../blocks/element/__name-like/element__name-like.css');
 @import url('../blocks/element/__name-text/element__name-text.css');
 @import url('../blocks/element/__name-heart/element__name-heart.css');
+@import url('../blocks/element/__name-number/element__name-number.css');
 @import url('../blocks/element/__name-heart/_type/element__name-heart_type_black.css');
 @import url('../blocks/footer/__copyrights/footer__copyrights.css');
 @import url('../blocks/form/form.css');
 @import url('../blocks/form/__set/form__set.css');
 @import url('../blocks/form/__button/form__button.css');
+@import url('../blocks/form/__button/_type/_delete-card/form__button_type_delete-card.css');
 @import url('../blocks/form/__button/_disabled/form__button_disabled.css');
 @import url('../blocks/form/__header/form__header.css');
 @import url('../blocks/form/__input/form__input.css');

@@ -2,16 +2,18 @@ import "./index.css";
 
 import {
   config,
-  cardList,
-  cardsContainer,
+  cardList,  
   popupTypeEdit,
   popupTypeAdd,
   editButton,
   addCard,
   inputName,
   inputAbout,
+  profileName,
+  profileTask,
+  profileAvatar
 } from "../components/module.js";
-import { Popup } from "../components/popup.js";
+import { Api } from "../components/Api";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -19,7 +21,60 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
-cardList.reverse();
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "f0ace597-b017-4eaf-8da3-94e369745d83",
+    "Content-Type": "application/json"
+  }
+});
+
+api.getInitialCards()
+   .then((cardList) => {     
+    const cards = new Section(
+        {
+          items: cardList,
+          renderer: (cardItem) => {      
+            renderCard(cardItem);      
+          },
+        },
+        ".elements"
+      );
+    const renderCard = (data) => {      
+      const card = createCard(data);
+      const cardElement = card.getCardElement();
+      cards.addItem(cardElement);
+    };         
+    })
+   .catch((err) => {
+     console.log(err);
+   });
+
+   // result.forEach((card) => {
+      // const name = card.name;
+      // const link = card.link;
+      // const id = card._id;
+      // cardList.push({name, link, id});          
+      // })    
+
+api.getUserInfo()
+   .then((result) => {     
+      profileName.textContent = result.name;
+      profileTask.textContent = result.about;
+      profileAvatar.src = result.avatar;
+   })
+   .catch((err) => {
+     console.log(err);
+   });
+
+api.editProfile()
+// api.addCard()
+api.deleteCard()
+api.addLike() 
+api.deleteLike()
+api.updateProfileImage() 
+
+// cardList.reverse();
 
 // instances
 const editFormValidator = new FormValidator(config, popupTypeEdit);
@@ -42,35 +97,34 @@ function createCard(dataElement) {
   return card;
 }
 
-const renderCard = (data) => {  
-  const card = createCard(data);
-  const cardElement = card.getCardElement();
-  cards.addItem(cardElement);
-};
+// const cards = new Section(".elements");
+
 
 const popupAdd = new PopupWithForm(".popup_type_add", (data) => {
   renderCard({ name: data.formTitle, link: data.formLink });
   popupAdd.close();  
 });
 
-// run validation
-editFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
 
-// setEventListeners
-popupEdit.setEventListeners();
-popupBigImage.setEventListeners();
-popupAdd.setEventListeners();
-
-const cards = new Section(
-  {
-    items: cardList,
-    renderer: (cardItem) => { 
-      renderCard(cardItem);
-    },
-  },
-  ".elements"
-);
+// function renderItems(cardList) {
+//   console.log(cardList)
+//   for(let i=0; i<30; i++){
+//     console.log(cardList[i])
+//     let cardItem = cardList[i];
+//     console.log(cardItem);
+//     renderCard(cardItem);
+//   }    
+  //   cardList.forEach((cardItem) => {       
+  //     renderCard(cardItem);
+  //   });
+  //  }
+// function renderItems(cardList) {    
+//   cardList.forEach((cardItem) => {       
+//     renderCard(cardItem);
+//   });
+// }
+// renderItems(cardList);
+// 
 
 // reset form-Edit value
 function resetFormEditValue() {
@@ -91,4 +145,12 @@ addCard.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   popupAdd.open();
 });
-cards.renderItems();
+
+// run validation
+editFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
+
+// setEventListeners
+popupEdit.setEventListeners();
+popupBigImage.setEventListeners();
+popupAdd.setEventListeners();

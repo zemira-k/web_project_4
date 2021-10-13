@@ -43,11 +43,9 @@ export class FormValidator {
   };
 
   // toggle Button State
-  _toggleButtonState = (inputList) => {
+  _toggleButtonState = () => {
     const { inactiveButtonClass } = this._settings;    
-    const isFormValid = inputList.every(
-      (inputList) => inputList.validity.valid
-    );
+    const isFormValid = this._inputList.every((input) => input.validity.valid);
     if (isFormValid) {
       this._buttonElement.disabled = false;
       this._buttonElement.classList.remove(inactiveButtonClass);
@@ -62,7 +60,7 @@ export class FormValidator {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
-    this._toggleButtonState(this._inputList);
+    this._toggleButtonState();
   };
 
   // run validation
@@ -70,7 +68,7 @@ export class FormValidator {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(this._inputList);
+        this._toggleButtonState();
       });
     });
   };
