@@ -3,10 +3,12 @@ export class FormValidator {
     this._settings = settings;
     this._formElement = form;
     this._submitButtonSelector = settings.submitButtonSelector;
-    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-    this._inputSelector = settings.inputSelector; 
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+    this._inputSelector = settings.inputSelector;
     this._inputList = Array.from(
-    this._formElement.querySelectorAll(this._inputSelector)
+      this._formElement.querySelectorAll(this._inputSelector)
     );
   }
 
@@ -44,7 +46,7 @@ export class FormValidator {
 
   // toggle Button State
   _toggleButtonState = () => {
-    const { inactiveButtonClass } = this._settings;    
+    const { inactiveButtonClass } = this._settings;
     const isFormValid = this._inputList.every((input) => input.validity.valid);
     if (isFormValid) {
       this._buttonElement.disabled = false;
@@ -56,7 +58,7 @@ export class FormValidator {
   };
 
   // reset validation
-  resetValidation = () => {        
+  resetValidation = () => {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
@@ -64,7 +66,7 @@ export class FormValidator {
   };
 
   // run validation
-  enableValidation = () => {        
+  enableValidation = () => {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
