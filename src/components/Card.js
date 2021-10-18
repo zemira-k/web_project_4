@@ -38,8 +38,12 @@ export class Card {
       .addEventListener("click", () => this._handleDeleteCard(this._id));
   }
 
-  isLiked() {
-    return this._likes.some((person) => person._id === this._userId);
+  _renderLikes() {    
+    this._element.querySelector(".element__name-number").textContent =
+      this._likes.length;    
+    this._element
+      .querySelector(".element__name-heart")
+      .classList.toggle("element__name-heart_type_black");
   }
 
   removeCard() {
@@ -51,11 +55,11 @@ export class Card {
 
   likeCard(newLikes) {
     this._likes = newLikes;
-    this._element.querySelector(".element__name-number").textContent =
-      this._likes.length;
-    this._element
-      .querySelector(".element__name-heart")
-      .classList.toggle("element__name-heart_type_black");
+    this._renderLikes();    
+  }
+
+  isLiked() {
+    return this._likes.some((person) => person._id === this._userId);
   }
 
   // create card element
@@ -65,16 +69,15 @@ export class Card {
     if (this._ownerId !== this._userId) {
       this._element.querySelector(".element__trash").style.display = "none";
     }
+    
     this._element.querySelector(".element__item").src = this._link;
     this._element.querySelector(".element__item").alt = this._name;
-    this._element.querySelector(".element__name-number").textContent =
-      this._likes.length;
     this._element.querySelector(".element__name-text").textContent = this._name;
-
+    this._element.querySelector(".element__name-number").textContent =
+      this._likes.length;    
     if (this.isLiked()) {
-      this.likeCard(this._likes);
+      this._renderLikes();     
     }
-
     return this._element;
   }
 }

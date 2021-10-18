@@ -10,10 +10,9 @@ export class PopupWithForm extends Popup {
 
   renderLoading(isLoading) {
     if (isLoading) {
-      this._popupElement.querySelector(".form__button").textContent =
-        "saving...";
+      this._popupElement.querySelector(".form__button").textContent = "saving...";
     } else {
-      this._popupElement.querySelector(".form__button").textContent = "save";
+      this._popupElement.querySelector(".form__button").textContent = this._popupElement.querySelector(".form__button").value;
     }
   }
 
@@ -29,12 +28,12 @@ export class PopupWithForm extends Popup {
   setEventListeners() {
     this._popupElement.addEventListener("submit", (e) => {
       e.preventDefault();
-      this.renderLoading("true");
+      this.renderLoading(true);
       this._submitHandler(this._getInputValues());
     });
     super.setEventListeners();
   }
-
+  
   close() {
     this._form.reset();
     super.close();

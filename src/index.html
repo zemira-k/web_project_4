@@ -31,7 +31,7 @@
                             <span class="form__input-error form__input-error_type_img-link form__input-error_active"
                                 id="formLink-error"></span>
                             <button aria-label="submit" class="form__button form__button_type_add form__button_disabled"
-                                type="submit" id="submit" disabled>Create</button>
+                                type="submit" id="submit" disabled value="Create">Create</button>
                         </fieldset>
                     </form>
                 </div>
@@ -54,7 +54,7 @@
                                 id="formAbout-error"></span>
                             <button aria-label="submit"
                                 class="form__button form__button_type_edit form__button_disabled"
-                                type="submit">save</button>
+                                type="submit" value="Save">save</button>
                         </fieldset>
                     </form>
                 </div>
@@ -89,11 +89,12 @@
                     <form class="form" name="formEditAvatar" novalidate>
                         <h2 class="form__header">Change profile picture</h2>
                         <fieldset class="form__set">
-                            <input class="form__input form__input_type_link" type="url" name="avatarImageLink" id="avatarImageLink" required pattern=".*\S.*">
+                            <input class="form__input form__input_type_link" type="url" name="avatarImageLink"
+                                id="avatarImageLink" required>
                             <span class="form__input-error form__input-error_type_link form__input-error_active"
                                 id="avatarImageLink-error"></span>
                             <button aria-label="submit" class="form__button form__button_type_edit-avatar"
-                                type="submit">Save</button>
+                                type="submit" value="Save">Save</button>
                         </fieldset>
                     </form>
                 </div>
@@ -101,15 +102,16 @@
 
             <section class="profile">
                 <div class="profile__avatar">
-                <button aria-label="profile__editbutton" class="profile__editbutton profile__editbutton_type_avatar"
-                    type="button"></button>
-                </div>                
+                    <button aria-label="profile__editbutton" class="profile__editbutton profile__editbutton_type_avatar"
+                        type="button"></button>
+                </div>
                 <div class="profile__info">
-                    <div class="profile__caption">                        
+                    <div class="profile__caption">
                         <h1 class="profile__name" id="name"></h1>
-                        <button aria-label="profile__editbutton" class="profile__editbutton profile__editbutton_type_data" type="button"
+                        <button aria-label="profile__editbutton"
+                            class="profile__editbutton profile__editbutton_type_data" type="button"
                             id="btnOpen"></button>
-                    </div>                    
+                    </div>
                     <p class="profile__task" id="task"></p>
                 </div>
                 <button aria-label="add-pic" class="profile__big-rectangle" type="button"></button>
