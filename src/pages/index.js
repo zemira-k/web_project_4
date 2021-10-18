@@ -176,7 +176,7 @@ editFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 editAvatarFormValidator.enableValidation();
 
-// setEventListeners
+// set EventListeners
 popupEdit.setEventListeners();
 popupChangeProfilePicture.setEventListeners();
 popupBigImage.setEventListeners();

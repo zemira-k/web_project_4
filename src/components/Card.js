@@ -68,8 +68,7 @@ export class Card {
     this._setEventListeners();
     if (this._ownerId !== this._userId) {
       this._element.querySelector(".element__trash").style.display = "none";
-    }
-    
+    }    
     this._element.querySelector(".element__item").src = this._link;
     this._element.querySelector(".element__item").alt = this._name;
     this._element.querySelector(".element__name-text").textContent = this._name;

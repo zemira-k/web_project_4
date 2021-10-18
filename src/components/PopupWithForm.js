@@ -6,13 +6,14 @@ export class PopupWithForm extends Popup {
     this._submitHandler = submitHandler;
     this._form = this._popupElement.querySelector(".form");
     this._inputs = Array.from(this._form.querySelectorAll(".form__input"));
+    this._formButton = this._popupElement.querySelector(".form__button");
   }
 
   renderLoading(isLoading) {
     if (isLoading) {
-      this._popupElement.querySelector(".form__button").textContent = "saving...";
+      this._formButton.textContent = "saving...";
     } else {
-      this._popupElement.querySelector(".form__button").textContent = this._popupElement.querySelector(".form__button").value;
+      this._formButton.textContent = this._formButton.value;
     }
   }
 
