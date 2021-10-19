@@ -40,10 +40,16 @@ export class Card {
 
   _renderLikes() {    
     this._element.querySelector(".element__name-number").textContent =
-      this._likes.length;    
+      this._likes.length;
+      if (this.isLiked()) {   
     this._element
       .querySelector(".element__name-heart")
-      .classList.toggle("element__name-heart_type_black");
+      .classList.add("element__name-heart_type_black");
+      } else {
+        this._element
+        .querySelector(".element__name-heart")
+        .classList.remove("element__name-heart_type_black");
+      }
   }
 
   removeCard() {
@@ -71,12 +77,8 @@ export class Card {
     }    
     this._element.querySelector(".element__item").src = this._link;
     this._element.querySelector(".element__item").alt = this._name;
-    this._element.querySelector(".element__name-text").textContent = this._name;
-    this._element.querySelector(".element__name-number").textContent =
-      this._likes.length;    
-    if (this.isLiked()) {
-      this._renderLikes();     
-    }
+    this._element.querySelector(".element__name-text").textContent = this._name;    
+    this._renderLikes();    
     return this._element;
   }
 }

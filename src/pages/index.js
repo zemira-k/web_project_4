@@ -59,12 +59,14 @@ const popupEdit = new PopupWithForm({
           formName: res.name,
           formAbout: res.about,
           formLink: res.avatar,
-        });
+        })        
+      })
+      .then(() => {        
+        popupEdit.close();
       })
       .catch(err => console.log(`Error: ${err}`))
       .finally(() => {
-        popupEdit.renderLoading(false);
-        popupEdit.close();
+        popupEdit.renderLoading(false);        
       });
   },
 });
@@ -78,12 +80,14 @@ const popupChangeProfilePicture = new PopupWithForm({
         formName: res.name,
         formAbout: res.about,
         formLink: res.avatar,
-      });         
+      })      
     })
+    .then(() => {
+      popupChangeProfilePicture.close();
+    }) 
     .catch(err => console.log(`Error: ${err}`))
     .finally(() => {
-      popupChangeProfilePicture.renderLoading(false);
-      popupChangeProfilePicture.close();
+      popupChangeProfilePicture.renderLoading(false);      
     });
   },
 });
@@ -135,12 +139,14 @@ const popupAdd = new PopupWithForm({
     api.addCard({ name: data.formTitle, link: data.formLink })
     .then((res) => {
       createCard(res);
-      // popupAdd.close();
+      popupAdd.close();
+    })
+    .then(() => {      
+      popupAdd.close();
     })
     .catch(err => console.log(`Error: ${err}`))
     .finally(() => {
-      popupAdd.renderLoading(false);
-      popupAdd.close();
+      popupAdd.renderLoading(false);      
     });
   },
 });
